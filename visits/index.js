@@ -2,7 +2,12 @@ const express = require('express')
 const redis = require('redis')
 
 const app = express()
-const client = redis.createClient()
+const client = redis.createClient({
+  // * This name should be same as the one under "services" in docker-compose.yml
+  host: 'redis-server',
+  // Default redis port
+  port: 6379
+})
 
 // Initialize
 const VISITS_KEY = 'visits'

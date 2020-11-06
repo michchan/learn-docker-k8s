@@ -2,6 +2,7 @@
 version: '3'
 # A "service" is a type of container
 services:
+  # * This name should be same as the "host" under "redis.createClient" in index.js
   redis-server:
     # Use a community built image
     image: 'redis'
