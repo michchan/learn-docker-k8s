@@ -22,4 +22,3 @@ services:
     ports:
       # "-" prefix is required in a yaml file for an item of an array
       - '4001:8081'
-
