@@ -8,6 +8,13 @@ services:
     image: 'redis'
   node-app:
     # Restart policy
+    
+    # For 'on-failure' case,
+    # the status code passed into 'process.exit' in node app
+    # has to be > 0 in order to restart,
+
+    # For 'no' case, it has to be wrapped with quotes because "no"
+    # is a reserved keyword in yaml file (mearning false).
     restart: 'always'
     # At the working directory,
     # Look for a Dockerfile and build an image with it
