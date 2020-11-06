@@ -1,0 +1,15 @@
+# Version of docker compose
+version: '3'
+# A "service" is a type of container
+services:
+  redis-server:
+    # Use a community built image
+    image: 'redis'
+  node-app:
+    # At the working directory,
+    # Look for a Dockerfile and build an image with it
+    build: .
+    ports:
+      # "-" prefix is required in a yaml file for an item of an array
+      - '4001:8081'
+
