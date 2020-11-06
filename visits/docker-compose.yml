@@ -7,6 +7,8 @@ services:
     # Use a community built image
     image: 'redis'
   node-app:
+    # Restart policy
+    restart: 'always'
     # At the working directory,
     # Look for a Dockerfile and build an image with it
     build: .
