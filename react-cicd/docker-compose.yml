@@ -8,7 +8,8 @@ services:
     ports:
       - '4000:3000'
     volumes:
-      # DON'T map node_modules
+      # DON'T map node_modules,
+      # Use the one installed on docker build phrase
       - /app/node_modules
       # Map CWD to /app inside container
       - .:/app
