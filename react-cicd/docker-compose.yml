@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    container_name: learn-docker-k8s-react-cicd
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      # DON'T map node_modules
+      - /app/node_modules
+      # Map CWD to /app inside container
+      - .:/app
+    
