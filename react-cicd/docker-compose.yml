@@ -6,7 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     ports:
-      - '4000:3000'
+      - '4000:4000'
+    environment:
+      # Specify PORT for react-scripts
+      PORT: '4000'
     volumes:
       # DON'T map node_modules,
       # Use the one installed on docker build phrase
