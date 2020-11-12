@@ -16,4 +16,12 @@ services:
       - /app/node_modules
       # Map CWD to /app inside container
       - .:/app
-    
+  # For running test script
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]
