@@ -9,3 +9,18 @@ before_install:
 
 script:
   - docker run -e CI=true michael4195/learn-docker-react-cicd npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-southeast-1"
+  # "Application name"
+  app: "learn-docker-reactcicd"
+  env: "LearnDockerReactcicd-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-491966765665"
+  bucket_path: "learn-docker-reactcicd"
+  # Deploy on every code pushed to / merged into master
+  on:
+    branch: master
+  # AWS credentials
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
