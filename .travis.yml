@@ -4,9 +4,11 @@ language: generic
 services:
   - docker
 
+# Commands executed before tests run
 before_install:
   - docker build -t michael4195/learn-docker-react-cicd -f ./react-cicd/Dockerfile.dev ./react-cicd
 
+# Commans of tests
 script:
   - docker run -e CI=true michael4195/learn-docker-react-cicd npm run test -- --coverage
 
