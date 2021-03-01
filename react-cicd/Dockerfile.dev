@@ -8,3 +8,5 @@ RUN npm install
 COPY . .
 
 CMD ["npm", "start"]
+
+# docker run -it --name learn-docker-react-cicd-dev -p 3000:3000 -v /app/node_modules -v $(pwd):/app <Image ID>
