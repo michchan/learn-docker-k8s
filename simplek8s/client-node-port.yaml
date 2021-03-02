@@ -1,12 +1,15 @@
 apiVersion: v1
 kind: Service
-metedata:
+metadata:
+  # * "Name" and "Kind" are as the unique ID of an existing object
   name: client-node-port
 spec:
   type: NodePort
   ports:
-    - ports: 3050
+    - port: 3050
+      # This map "containerPort" in that selected component "web"
       targetPort: 3000
+      # NodePort is only dedicated for DEV purpose
       nodePort: 31515
   selector:
     component: web

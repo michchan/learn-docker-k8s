@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  # * "Name" and "Kind" are as the unique ID of an existing object
   name: client-pod
   labels:
     component: web
 spec:
   containers:
     - name: client
-      image: stephengrider/multi-client
+      image: stephengrider/multi-worker
       ports:
-        - containerPorts: 3000
+        - containerPort: 3000
