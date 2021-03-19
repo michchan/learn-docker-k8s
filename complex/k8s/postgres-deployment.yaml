@@ -35,3 +35,12 @@ spec:
               # This means that data saved in "mountPath", will be stored inside
               # the folder specified by "subPath" in the persistent volume
               subPath: postgres
+          # Environment variables
+          env:
+            - name: POSTGRES_PASSWORD
+              # * Get value from secret
+              valueFrom: 
+                secretKeyRef:
+                  name: learn-k8s-pgpassword
+                  # There can be more than one pair of key-value pairs in a secret.
+                  key: PGPASSWORD

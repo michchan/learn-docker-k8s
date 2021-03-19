@@ -23,4 +23,5 @@ spec:
             - name: REDIS_HOST
               value: redis-cluster-ip-service
             - name: REDIS_PORT
-              value: 6379
+              # Must be string
+              value: '6379'
