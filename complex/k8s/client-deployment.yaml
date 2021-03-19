@@ -6,6 +6,8 @@ spec:
   replicas: 3
   selector:
     matchLabels:
+      # Key-value pair that's up to you, like:
+      # partOfApp: frontend
       component: web
   template:
     metadata:
