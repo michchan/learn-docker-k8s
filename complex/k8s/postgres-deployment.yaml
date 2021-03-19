@@ -14,9 +14,24 @@ spec:
       labels:
         component: postgres
     spec:
+      volumes: 
+        - name: postgres-storage
+          persistentVolumeClaim:
+            # This must be identical to that "database-persistence-volume-claim.yaml" file
+            claimName: database-persistence-volume-claim
       containers:
         - name: postgres
           image: postgres
           ports:
             # Default port of postgres
             - containerPort: 5432
+          volumeMounts:
+              # Match the name in "spec.volumes"
+            - name: postgres-storage
+              # Where Postgres stores the data in the container hard drive.
+              # This is the default volume path of Postgres
+              mountPath: /var/lib/postgresql/data
+              # * Additional option for Postgres only
+              # This means that data saved in "mountPath", will be stored inside
+              # the folder specified by "subPath" in the persistent volume
+              subPath: postgres

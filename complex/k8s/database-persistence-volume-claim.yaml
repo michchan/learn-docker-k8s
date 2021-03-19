@@ -13,3 +13,6 @@ spec:
   resources:
     requests:
       storage: 2Gi
+  
+  # We don't need to configure this on local environment.
+  # storageClassName:
