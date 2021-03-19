@@ -1,0 +1,15 @@
+apiVersion: v1
+# Something we want to attach to a pod config
+kind: PersistentVolumeClaim
+metadata:
+  name: database-persistence-volume-claim
+spec:
+  accessModes:
+    # Access Modes (accessModes) in PVC Kubernetes:
+    # - ReadWriteOnce -> R/W single node
+    # - ReadOnlyMany -> R many nodes
+    # - ReadWriteMany -> R/W many nodes
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
