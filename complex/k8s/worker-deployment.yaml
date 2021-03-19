@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-deployment
+spec:
+  # Only use a single worker
+  replicas: 1
+  selector:
+    matchLabels:
+      # Key-value pair that's up to you, like:
+      # partOfApp: frontend
+      component: worker
+  template:
+    metadata:
+      labels:
+        component: worker
+    spec:
+      containers:
+        - name: worker
+          image: stephengrider/multi-worker
