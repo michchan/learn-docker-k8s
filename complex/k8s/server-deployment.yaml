@@ -20,3 +20,19 @@ spec:
           ports:
             # "5000" is hardcoded in the ExpressJS app
             - containerPort: 5000
+          # Environment variables
+          env:
+            - name: REDIS_HOST
+              value: redis-cluster-ip-service
+            - name: REDIS_PORT
+              value: 6379
+            - name: PGUSER
+              value: postgres
+            - name: PGHOST
+              value: redis-cluster-ip-service
+            - name: PGDATABASE
+              value: postgres
+            - name: PGPASSWORD
+              value: postgres
+            - name: PGPORT
+              value: 5432
